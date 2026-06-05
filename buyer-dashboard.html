@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<body lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buyer Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+.dashboard{
+    display:flex;
+    min-height:100vh;
+}
+
+.sidebar{
+    width:260px;
+    background:#08163d;
+    color:white;
+    padding:30px;
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+}
+
+.sidebar ul{
+    list-style:none;
+    padding:0;
+}
+
+.sidebar ul li{
+    padding:15px 0;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.sidebar ul li:hover{
+    color:#87ceeb;
+}
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        padding:20px;
+    }
+
+    .sidebar li{
+        text-align:center;
+    }
+}
+.content{
+flex:1;
+background:#eef1f7;
+padding:30px;
+}
+
+.welcome{
+background:white;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+}
+
+.card h3{
+font-size:35px;
+color:#35538c;
+}
+
+.orders{
+margin-top:25px;
+background:white;
+padding:20px;
+border-radius:12px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+table th,
+table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+text-align:left;
+}
+
+
+.mobile-header{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    .dashboard{
+        flex-direction:column;
+    }
+
+    table{
+        font-size:14px;
+    }
+
+    .mobile-header{
+        display:flex;
+        justify-content:flex-start;
+        align-items:center;
+        margin-bottom:15px;
+    }
+
+    .menu-btn{
+        width:50px;
+        height:50px;
+        background:#08163d;
+        color:#fff;
+        border:none;
+        border-radius:8px;
+        font-size:24px;
+        cursor:pointer;
+    }
+
+    .sidebar{
+        position:fixed;
+        top:0;
+        left:-260px;
+        width:260px;
+        height:100%;
+        background:#08163d;
+        z-index:1000;
+        transition:0.3s ease;
+    }
+
+    .sidebar.active{
+        left:0;
+    }
+}
+
+
+.close-btn{
+    display:none;
+}
+
+@media(max-width:768px){
+
+    .close-btn{
+        display:block;
+        background:none;
+        border:none;
+        color:white;
+        font-size:28px;
+        cursor:pointer;
+        margin-bottom:20px;
+    }
+
+}
+
+
+
+</style>
+
+</head>
+<body>
+<div class="dashboard">
+
+<div class="sidebar" id="sidebar">
+  <button class="close-btn" onclick="toggleMenu()">✖</button>
+<h2>Buyer Panel</h2>
+
+<ul>
+<li>Dashboard</li>
+<li onclick="window.location.href='orders.html'">
+    My Orders
+</li>
+<li onclick="logoutUser()">Logout</li>
+</ul>
+
+</div>
+
+<div class="content">
+
+<div class="mobile-header">
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+
+<div class="welcome">
+        <h2 id="welcomeUser"></h2>
+    </div>
+
+<div class="cards">
+
+<div class="card">
+<h3>45</h3>
+<p>Total Orders</p>
+</div>
+
+<div class="card">
+<h3>12</h3>
+<p>Wishlist</p>
+</div>
+
+<div class="card">
+<h3>8</h3>
+<p>Coupons</p>
+</div>
+
+<div class="card">
+<h3>520</h3>
+<p>Reward Points</p>
+</div>
+
+</div>
+
+
+ <h2>Trending Now</h2>
+<div class="product-grid">
+
+    <div class="product-card">
+        
+        <img src="images/dashimg1.webp" alt="">
+        <h3>Oversized Hoodie</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg2.webp" alt="">
+        <h3>Denim Jacket</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg3.webp" alt="">
+        <h3>Premium Sneakers</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg4.webp" alt="">
+        <h3>Luxury Watch</h3>
+    </div>
+
+</div>
+
+
+<h2>New Arrivals</h2>
+
+<div class="product-grid">
+
+    <div class="product-card">
+        <img src="images/dashimg5.webp" alt="">
+        <h3>Summer Shirt</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg6.webp" alt="">
+        <h3>Women's Dress</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg7.webp" alt="">
+        <h3>Casual Shoes</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg8.webp" alt="">
+        <h3>Hand Bag</h3>
+    </div>
+
+</div>
+
+
+<h2>Top Brands</h2>
+
+<div class="product-grid">
+
+    <div class="product-card">
+        <img src="images/dashimg3.webp" alt="">
+        <h3>Nike</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg9.webp" alt="">
+        <h3>Adidas</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg10.webp" alt="">
+        <h3>Puma</h3>
+    </div>
+
+    <div class="product-card">
+        <img src="images/dashimg11.webp" alt="">
+        <h3>Zara</h3>
+    </div>
+
+</div>
+
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
