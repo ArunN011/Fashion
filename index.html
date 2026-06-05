@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fashion Login</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+
+        <div class="logo">
+    <img src="images/logo (2).webp" alt="">
+    
+</div>
+         
+    <div class="menu-toggle" onclick="toggleNavMenu()">
+        ☰
+    </div>
+        <ul class="nav-links" id="navLinks">
+        
+            <li><a href="index.html">Login</a></li>
+            <li><a href="signup.html">Register</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="auth-container">
+
+    <div class="auth-card">
+
+        <h2>Fashion Login</h2>
+
+        <select id="role">
+            <option value="">Select Role</option>
+            <option value="buyer">Buyer</option>
+            <option value="dealer">Dealer</option>
+        </select>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Enter Email"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Enter Password"
+        >
+
+        <button class="login-btn" onclick="loginUser()">
+    Login To Dashboard
+</button>
+        <p>
+            Don't have an account?
+            <a href="signup.html">Create Account</a>
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
